@@ -1,8 +1,8 @@
-json.data @notes.each do |n|
+json.data @notes.each do
   json.type "Assessments Notes"
   json.attributes {
-    json.note n.note
-    json.note_id n.id
-    json.assessment_id n.assessment_id
+    json.note _1.note
+    json.note_id _1.id
+    json.assessment_id _1.assessment_id
    }
 end
