@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     get "/assessments", to: "players#assessment", as: "assessment"
   end
   post "/assessments", to: "assessments#index"
+  post "/notes", to: "notes#index"
   resources :assessments, except: [:index]
-  resources :notes
+  resources :notes, except: [:index]
 end
