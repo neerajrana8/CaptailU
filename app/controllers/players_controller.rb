@@ -7,4 +7,9 @@ class PlayersController < ApplicationController
   def show
     @player = Player.find(params[:id])
   end
+
+  def assessment
+    player = Player.find(params[:player_id])
+    @assessments = player.assessments
+  end
 end

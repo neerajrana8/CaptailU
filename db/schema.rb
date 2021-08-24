@@ -14,13 +14,13 @@ ActiveRecord::Schema.define(version: 2021_08_24_091648) do
 
   create_table "assessments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "rating"
-    t.string "assesment_type", default: "event"
-    t.bigint "user_id", null: false
+    t.string "assessment_type", default: "event"
+    t.bigint "player_id"
     t.bigint "tournament_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["player_id"], name: "index_assessments_on_player_id"
     t.index ["tournament_id"], name: "index_assessments_on_tournament_id"
-    t.index ["user_id"], name: "index_assessments_on_user_id"
   end
 
   create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -33,12 +33,12 @@ ActiveRecord::Schema.define(version: 2021_08_24_091648) do
 
   create_table "notes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "note"
-    t.bigint "user_id", null: false
+    t.bigint "player_id"
     t.bigint "assessment_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["assessment_id"], name: "index_notes_on_assessment_id"
-    t.index ["user_id"], name: "index_notes_on_user_id"
+    t.index ["player_id"], name: "index_notes_on_player_id"
   end
 
   create_table "teams", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -79,10 +79,8 @@ ActiveRecord::Schema.define(version: 2021_08_24_091648) do
   end
 
   add_foreign_key "assessments", "tournaments"
-  add_foreign_key "assessments", "users"
   add_foreign_key "events", "tournaments"
   add_foreign_key "notes", "assessments"
-  add_foreign_key "notes", "users"
   add_foreign_key "teams", "tournaments"
   add_foreign_key "users", "teams"
 end

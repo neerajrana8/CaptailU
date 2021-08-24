@@ -40,3 +40,31 @@ event1  = Event.new(name: 'Badminton Competition', tournament: @tournament1)
 event2  = Event.new(name: 'Tennis Competition', tournament: @tournament1)
 event1.save
 event2.save
+
+assessment1 = Assessment.new(player: player1, tournament: @tournament1, rating: 9 )
+assessment2 = Assessment.new(player: player2, tournament: @tournament1, rating: 6 )
+assessment3 = Assessment.new(player: player3, tournament: @tournament1, rating: 2 )
+assessment4 = Assessment.new(player: player4, tournament: @tournament1, rating: 8 )
+assessment5 = Assessment.new(player: player5, tournament: @tournament1, rating: 6 )
+assessment6 = Assessment.new(player: player1, tournament: @tournament1, rating: 9 )
+
+assessment1.save
+assessment2.save
+assessment3.save
+assessment4.save
+assessment5.save
+assessment6.save
+
+note1 = Note.new(note: "Good Health", assessment: assessment1, player: assessment1.player)
+note2 = Note.new(note: "Good Stamina", assessment: assessment2, player: assessment2.player)
+note3 = Note.new(note: "Good Endurance", assessment: assessment3, player: assessment3.player)
+note4 = Note.new(note: "Good Health", assessment: assessment4, player: assessment5.player)
+note5 = Note.new(note: "Good Stamina", assessment: assessment5, player: assessment5.player)
+note6 = Note.new(note: "Good Speed", assessment: assessment6, player: assessment6.player)
+
+note1.save
+note2.save
+note3.save
+note4.save
+note5.save
+note6.save

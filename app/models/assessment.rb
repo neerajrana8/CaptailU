@@ -13,6 +13,5 @@
 class Assessment < ApplicationRecord
   belongs_to :tournament
   belongs_to :player
-  has_many :notes
-
+  has_many :notes, dependent: :destroy
 end

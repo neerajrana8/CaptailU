@@ -9,5 +9,10 @@ Rails.application.routes.draw do
   end
   resources :events, only: [:show]
   resources :teams, only: [:show]
-  resources :players, only: [:index, :show]
+  resources :players, only: [:index, :show] do
+    get "/assessments", to: "players#assessment", as: "assessment"
+  end
+  post "/assessments", to: "assessments#index"
+  resources :assessments, except: [:index]
+  resources :notes
 end
