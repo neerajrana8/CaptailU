@@ -9,9 +9,8 @@
 #  updated_at      :datetime         not null
 #  type            :string(255)
 #
-class User < ApplicationRecord
-  has_secure_password
-
-  validates_presence_of :email
-  validates_uniqueness_of :email
+class Player < User
+  has_many :assessments
+  has_many :notes
+  belongs_to :team
 end

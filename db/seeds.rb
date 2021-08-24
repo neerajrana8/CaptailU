@@ -7,3 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 user = User.new(email: 'neeraj@gmail.com', password: "neeraj123")
 user.save
+
+Tournament.new(name: 'Hockey Championship', city: "Dehradun", state: "Uttarakhand", start_date: "12-11.2021")
