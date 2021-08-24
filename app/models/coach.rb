@@ -8,6 +8,7 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  type            :string(255)
+#  team_id         :bigint           not null
 #
 class Coach < User
 end

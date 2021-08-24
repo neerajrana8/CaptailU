@@ -8,6 +8,7 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  type            :string(255)
+#  team_id         :bigint           not null
 #
 class Player < User
   has_many :assessments

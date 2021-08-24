@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_24_045203) do
+ActiveRecord::Schema.define(version: 2021_08_24_091648) do
 
   create_table "assessments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "rating"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2021_08_24_045203) do
 
   create_table "teams", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
-    t.string "age_ground"
+    t.string "age_group"
     t.string "coach"
     t.bigint "tournament_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -66,7 +66,15 @@ ActiveRecord::Schema.define(version: 2021_08_24_045203) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "type"
-    t.bigint "team_id", null: false
+    t.bigint "team_id"
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "height"
+    t.integer "weight"
+    t.string "birthday"
+    t.integer "graduation_year"
+    t.string "position"
+    t.boolean "recruit"
     t.index ["team_id"], name: "index_users_on_team_id"
   end
 

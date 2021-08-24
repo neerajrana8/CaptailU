@@ -1,11 +1,10 @@
 class TournamentsController < ApplicationController
-
+  helper TournamentHelper
   def index
     @tournaments = Tournament.all
-    render json: { data: @tournaments }
   end
 
   def show
-    @tournament = Tournament.find(params(:tournament_id))
+    @tournament = Tournament.find(params[:id])
   end
 end
